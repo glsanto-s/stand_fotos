@@ -8,7 +8,7 @@ import './style.css';
 const App = () => {
   const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
 
-  let link = `https://sheetdb.io/api/v1/9ciparuiuzsu4`;
+  let link = `https://sheetdb.io/api/v1/glb268jital7o`;
   const [personagem, setPersonagem] = useState("");
   useEffect(() => {
     api();
@@ -26,21 +26,24 @@ const App = () => {
 
       })
       .catch(() => {
-        console.log("first")
+        console.log("Deu erro!")
       });
   }, []);
 
   return (
-    <div className="embla" ref={emblaRef}>
+    <div>
+      <div className="fundo">.</div>
+      <div className="embla" ref={emblaRef}>
         <div className="embla__container" >
-      {personagem && personagem.map((item, index) => (
+          {personagem && personagem.map((item, index) => (
 
             <iframe
               className="embla__slide" key={index}
               src={`https://drive.google.com/file/d/${item.Fotos.split("=")[1]}/preview`} />
 
-      ))}
+          ))}
         </div>
+      </div>
     </div>
   )
 }
